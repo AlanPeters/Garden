@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var sensorRoute = require('./routes/sensoerLog');
+var sensorRoute = require('./routes/sensorLog');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
