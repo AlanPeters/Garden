@@ -4,11 +4,11 @@
 #include <SparkFunESP8266WiFi.h>
 
 String myName = "Moisture Sensor 1";
-String address = "10.0.0.146";
+String address = "10.0.0.145";
 int port = 3000;
 
 void setup() {
-  
+  Serial.begin(9600);
   if(esp8266.begin()){
     Serial.println("ESP8266 available");
   }else{
@@ -26,9 +26,10 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  delay(5000);
   int sensorData = analogRead(A0);
-  String postData = "{\"Name\":"+myName+
-                    ",\"Data\":"+(String)sensorData+
+  String postData = "{\"Name\":\""+myName+
+                    "\",\"Data\":"+(String)sensorData+
                     "}";
   String request = buildPostRequest("/logSensor",address,postData);
   Serial.print(request);
